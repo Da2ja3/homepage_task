@@ -68,21 +68,36 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             width: 16,
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                width: 224,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  color: ash5,
-                                  shape: BoxShape.rectangle,
-                                  image: DecorationImage(
-                                    image: AssetImage('assets/images/Icon.png'),
+                          Container(
+                            width: 262,
+                            decoration: BoxDecoration(
+                              color: ash5,
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 114.0),
+                                  child: customTextWidget(
+                                      text: 'Online payment limit per month',
+                                      size: 10,
+                                      weight: FontWeight.w500,
+                                    ),
+                                ),
+                                SizedBox(height:8),
+                                Image.asset('assets/images/Group 1000003806.png'),
+                                SizedBox(height:8),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: customTextWidget(
+                                    text: '\$900.00 out of \$1,000.00 left',
+                                    size: 10,
+                                    weight: FontWeight.w500,
                                   ),
                                 ),
-                              ),
-                            ],
-                          )
+                              ],
+                            ),
+                            )
                         ],
                       ),
                       SizedBox(height: 26,),
@@ -98,8 +113,8 @@ class _HomePageState extends State<HomePage> {
                               child: customTextWidget(
                                 text: 'Wallet',
                                 size: 14,
-                                weight: FontWeight.w600,
-                                color: select == 'first' ? Colors.white : ash2,
+                                weight: FontWeight.w500,
+                                color: select == 'first' ? white : selectColor,
 
                               ),
                             ),
@@ -108,22 +123,42 @@ class _HomePageState extends State<HomePage> {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                select = 'first';
+                                select = 'second';
                               });
                             },
                           child: customTextWidget(
                             text: 'Cards',
                             size: 14,
-                            weight: FontWeight.w600,
+                            weight: FontWeight.w500,
                             color: select == 'second' ? white : selectColor,
 
                           ),
 
                       ),
                     ]
-                    )
-            ]
+                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Column(
+                          children: [
+                            Container(
+                              child: customTextWidget(
+                                text: 'Card Settings',
+                                size: 14,
+                                weight: FontWeight.w500,
+                                color: select == 'second' ? white : selectColor,
+
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                    ]
+        ),
+                )
+            ),
         )
-    ))));
+    );
   }
 }
